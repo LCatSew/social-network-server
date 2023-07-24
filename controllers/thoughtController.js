@@ -14,7 +14,7 @@ const thoughtController = {
     // get one thought by id
     async getThoughtById(req, res) {
         try {
-            const dbThoughtData = await Thought.findOne({ _id: req.params.id }).populate('reactions');
+            const dbThoughtData = await Thought.findOne({ _id: req.params.thoughtId }).populate('reactions');
             if (!dbThoughtData) {
                 res.status(404).json({ message: 'No thought found with this id!' });
                 return;
