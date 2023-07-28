@@ -23,28 +23,7 @@ console.time('seeding');
 //     },
 // ];
 
-const thoughts = [
-    {
-        thoughtText: 'This app is dope!',
-        username: 'lernantino',
-        reactions: '👍',
-    },
-    {
-        thoughtText: 'I love my dog!',
-        username: 'amiko',
-        reactions: '😍',
-    },
-    {
-        thoughtText: 'Sk8rB0i 4 life!',
-        username: 'skaterboi',
-        reactions: '😆',
-    },
-    {
-        thoughtText: '@skaterboi is dumb',
-        username: 'dylan2',
-        reactions: '😡',
-    },
-]
+
 
 connection.once('open', async () => {
     console.log('connected to database');
@@ -80,6 +59,29 @@ connection.once('open', async () => {
         },
     ];
 
+    const thoughts = [
+        {
+            thoughtText: 'This app is dope!',
+            username: 'lernantino',
+            reactions: '👍',
+        },
+        {
+            thoughtText: 'I love my dog!',
+            username: 'amiko',
+            reactions: '😍',
+        },
+        {
+            thoughtText: 'Sk8rB0i 4 life!',
+            username: 'skaterboi',
+            reactions: '😆',
+        },
+        {
+            thoughtText: '@skaterboi is dumb',
+            username: 'dylan2',
+            reactions: '😡',
+        },
+    ]
+
     // const {users} = 
     // const users = [];
     // const thoughts  = [];
@@ -90,11 +92,9 @@ connection.once('open', async () => {
 
 
 
-    await User.create( {
-        username: 'dylan2',
-        email: 'dylan2@fakedylan2.com'
-    });
-    // await Thought.collection.insertMany(thoughts);
+    await User.insertMany(users);
+
+    await Thought.insertMany(thoughts);
 
 
     console.log('collections seeded');
