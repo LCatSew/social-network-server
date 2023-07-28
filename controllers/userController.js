@@ -38,6 +38,7 @@ const userController = {
     },
     // createUser
     async createUser(req, res) {
+        console.log(req.body);
         try {
             const dbUserData = await User.create(req.body);
             res.json(dbUserData);

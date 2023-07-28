@@ -1,4 +1,4 @@
-const router = express.Router();
+const router = require('express').Router();
 
 const {
     getAllUsers,
@@ -15,3 +15,5 @@ router.route('/').get(getAllUsers).post(createUser);
 
 // /api/users/:userId
 router.route('/:userId').get(getUserById).put(updateUser).delete(deleteUser).put(addFriend).delete(removeFriend);
+
+module.exports = router;

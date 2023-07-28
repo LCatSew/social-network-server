@@ -1,6 +1,7 @@
+// data.js
+
 const usernames = [
-    'lernantino',
-    'amiko',
+    
     'skaterboi',
     'dylan2',
 ];
@@ -19,3 +20,10 @@ const reactions = [
     '👍',
     '👎',
 ];
+
+module.exports = {
+    usernames,
+    thoughts,
+    reactions,
+};
+
