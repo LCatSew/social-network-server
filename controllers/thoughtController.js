@@ -1,4 +1,6 @@
 const { Thought, User } = require('../models');
+const { ObjectId } = require('mongoose').Types;
+
 
 const thoughtController = {
     // get all thoughts
@@ -14,14 +16,14 @@ const thoughtController = {
     // get one thought by id
     async getThoughtById(req, res) {
         try {
-            const dbThoughtData = await Thought.findOne({ _id: req.params.thoughtId }).populate('reactions');
+            const dbThoughtData = await Thought.findOne({ _id: req.params.thoughtId }).populate('reactions')
+                .select('-__v');
+
             if (!dbThoughtData) {
-                res.status(404).json({ message: 'No thought found with this id!' });
-                return;
+                return res.status(404).json({ message: 'No thought found with this id!' });
             }
             res.json(dbThoughtData);
         } catch (err) {
-            console.log(err);
             res.status(500).json(err);
         }
     },

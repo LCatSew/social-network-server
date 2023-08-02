@@ -4,26 +4,6 @@ const { User, Thought } = require('../models');
 
 console.time('seeding');
 
-// const users = [
-//     {
-//         username: 'lernantino',
-//         email: 'lernantino@fakelernantino.com'
-//     },
-//     {
-//         username: 'amiko',
-//         email: 'amiko@fakeamiko.com'
-//     },
-//     {
-//         username: 'skaterboi',
-//         email: 'skaterboi@fakeskaterboi.com'
-//     },
-//     {
-//         username: 'dylan2',
-//         email: 'dylan2@fakedylan2.com'
-//     },
-// ];
-
-
 
 connection.once('open', async () => {
     console.log('connected to database');
@@ -40,6 +20,7 @@ connection.once('open', async () => {
         await connection.db.dropCollection('thoughts');
     }
 
+    //users & thoughts object arrays can be declared globally or function scoped. it does not make a difference in this case
     const users = [
         {
             username: 'lernantino',
@@ -82,15 +63,8 @@ connection.once('open', async () => {
         },
     ]
 
-    // const {users} = 
-    // const users = [];
-    // const thoughts  = [];
+
     console.log('collections dropped');
-
-    // const newUser
-    // users.push({ username, email });
-
-
 
     await User.insertMany(users);
 
