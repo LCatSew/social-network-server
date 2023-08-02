@@ -29,17 +29,19 @@ const thoughtController = {
     // createThought
     async createThought(req, res) {
         try {
+
             const dbThoughtData = await Thought.create(req.body);
-            const dbUserData = await User.findOneAndUpdate(
-                { _id: req.body.userId },
-                { $push: { thoughts: dbThoughtData._id } },
-                { new: true }
-            );
-            if (!dbUserData) {
-                res.status(404).json({ message: 'No user found with this id!' });
-                return;
-            }
-            res.json(dbUserData);
+            // const dbUserData = await User.findOneAndUpdate(
+            //     { username: req.body.username },
+            //     { $push: { thoughts: dbThoughtData._id } },
+            //     { new: true }
+            // );
+            // if (!dbUserData) {
+            //     res.status(404).json({ message: 'No user found with this id!' });
+            //     return;
+            // }
+            // res.json(dbUserData);
+            res.status(200).json(dbThoughtData)
         } catch (err) {
             console.log(err);
             res.status(500).json(err);
