@@ -50,21 +50,24 @@ const thoughtController = {
     // delete Thought by id
     async deleteThought(req, res) {
         try {
-            const dbThoughtData = await Thought.findOneAndDelete({ _id: req.params.id });
+            const dbThoughtData = await Thought.findOneAndRemove({ _id: req.params.thoughtId });
             if (!dbThoughtData) {
                 res.status(404).json({ message: 'No thought found with this id!' });
                 return;
             }
-            const dbUserData = await User.findOneAndUpdate(
-                { username: dbThoughtData.username },
-                { $pull: { thoughts: req.params.id } },
-                { new: true }
-            );
-            if (!dbUserData) {
-                res.status(404).json({ message: 'No user found with this username!' });
-                return;
-            }
-            res.json(dbUserData);
+            // const dbUserData = await User.findOneAndUpdate(
+            //     { username: dbThoughtData.username },
+            //     { $pull: { thoughts: req.params.id } },
+            //     { new: true }
+            // );
+            // if (!dbUserData) {
+            //     res.status(404).json({ message: 'No user found with this username!' });
+            //     return;
+            // }
+            res.json( {message: 'Thought has been deleted'} );
+            console.log("Thought had been deleted!")
+
+            // res.json(dbUserData);
         } catch (err) {
             console.log(err);
             res.status(500).json(err);
@@ -73,7 +76,7 @@ const thoughtController = {
     // update thought by id
     async updateThought(req, res) {
         try {
-            const dbThoughtData = await Thought.findOneAndUpdate({ _id: req.params.id});
+            const dbThoughtData = await Thought.findOneAndUpdate({ _id: req.params.thoughtId});
             if (!dbThoughtData) {
                 res.status(404).json({ message: 'No thought found with this id!' });
                 return;

@@ -40,8 +40,10 @@ const userController = {
     async createUser(req, res) {
         console.log(req.body);
         try {
-            const dbUserData = await User.create(req.body);
-            res.json(dbUserData);
+            const dbUserData = await User.create({
+                username: req.body.username ,
+            });
+            res.status(200).json(dbUserData);
         } catch (err) {
             console.log(err);
             res.status(500).json(err);
