@@ -1,35 +1,52 @@
 # social-network-server
-NoSQL Challenge: Social Network API
 
-## User Story
-AS A social media startup
-- I WANT an API for my social network that uses a NoSQL database
-- SO THAT my website can handle large amounts of unstructured data
+## Description
+    
+- Build a database of users, thoughts, and reactions.
+- I built this project to have hands on experience building databases using NoSql, MongoDB, and Mongoose.
+- n/a
+- n/a
+- Alot of my field entries were coming back as undefined. 
 
+## Table of Contents
 
-## Acceptance Criteria
-GIVEN a social network API
-
-
-WHEN I enter the command to invoke the application
-
-
-- THEN my server is started and the Mongoose models are synced to the MongoDB database
+- [Installation](#installation)
+- [Usage](#usage)
 
 
-WHEN I open API GET routes in Insomnia for users and thoughts
+
+- [License](#license)
+
+- [Questions](#questions)
 
 
-- THEN the data for each of these routes is displayed in a formatted JSON
+## Installation
+
+To install, run npm i. Then, in a new terminal, run node utiles/seed.js - after installing NoSql, MongoDb, and then MongoDB compass.
+
+## Usage
 
 
-WHEN I test API POST, PUT, and DELETE routes in Insomnia
 
 
-- THEN I am able to successfully create, update, and delete users and thoughts in my database
 
 
-WHEN I test API POST and DELETE routes in Insomnia
 
 
-- THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
+## License
+
+https://opensource.org/licenses/MIT
+
+## Badges
+
+![License: MIT](https://img.shields.io/badge/MIT-yellow.svg)
+
+
+
+## Questions 
+
+To view my Github profile, follow this link: https://github.com/LCatSew
+
+If you have any questions, concerns, or recommendations, you may contact me at LCatSewell@gmail.com  
+
+
