@@ -76,7 +76,10 @@ const thoughtController = {
     // update thought by id
     async updateThought(req, res) {
         try {
-            const dbThoughtData = await Thought.findOneAndUpdate({ _id: req.params.thoughtId});
+            const dbThoughtData = await Thought.findOneAndUpdate(
+                { _id: req.params.thoughtId},
+                //{ $set: req.body} - this is saying undefined for some reason
+            );
             if (!dbThoughtData) {
                 res.status(404).json({ message: 'No thought found with this id!' });
                 return;
